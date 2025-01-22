@@ -1,5 +1,4 @@
 const url = "https://eoo2jupsehe9km7.m.pipedream.net";
-// const url = "https://eorhfjpils7ry4q.m.pipedream.net";
 
 async function sendMessage(data = {}) {
   const headers = new Headers();
