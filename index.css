@@ -92,7 +92,7 @@ nav.sticky #nav-logo {
 header {
   position: relative;
   z-index: 4;
-  padding: 7vmin;
+  padding: 7vmin 9vmin 7vmin 5vmin;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,7 +100,8 @@ header {
 }
 #logo {
   display: block;
-  max-width: 100%;
+  width: 100%;
+  max-width: 70rem;
 }
 h1,
 h2,
