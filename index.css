@@ -3,18 +3,16 @@
     "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", sans-serif;
   --bg: #f8f9fa;
   --fg: #101214;
+  --ssg1: #eac93d;
+  --ssg2: #e4b131;
+  --ssg3: #de9925;
+  --ssg4: #d88119;
+  --burnt-orange: hsl(28deg 78% 52%);
   --rad-grad: radial-gradient(
     circle 85vmin at center,
-    hsl(202deg 85% 25% / 50%),
-    hsl(202deg 80% 60% / 50%),
-    hsl(202deg 80% 25% / 50%)
-  );
-  --intro-grad: linear-gradient(
-    130deg,
-    hsl(202deg 75% 60% / 75%),
-    hsl(202deg 80% 40% / 75%),
-    hsl(202deg 85% 28% / 75%),
-    hsl(202deg 30% 10% / 75%)
+    hsl(218deg 85% 20% / 40%),
+    hsl(218deg 80% 70% / 25%),
+    hsl(218deg 80% 50% / 10%)
   );
 }
 :root,
@@ -38,8 +36,8 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid hsl(202deg 10% 10% / 25%);
-  box-shadow: 0 0 0.25rem 0.25rem hsl(202deg 10% 10% / 15%);
+  border-bottom: 1px solid hsl(218deg 10% 10% / 25%);
+  box-shadow: 0 0 0.25rem 0.25rem hsl(218deg 10% 10% / 15%);
   transition: all 0.4s;
 }
 nav.sticky {
@@ -94,15 +92,15 @@ nav.sticky #nav-logo {
 header {
   position: relative;
   z-index: 4;
-  padding: 8vmin 0.25rem;
+  padding: 7vmin;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #fff;
 }
-#x-logo-icon {
-  width: 16vmin;
-  height: 16vmin;
+#logo {
+  display: block;
+  max-width: 100%;
 }
 h1,
 h2,
@@ -121,26 +119,48 @@ h1 > span.blue {
   margin-right: -2.5vmin;
 }
 .blue {
-  color: hsl(202deg 90% 40%);
+  color: hsl(218deg 90% 40%);
 }
 #intro {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--intro-grad);
-  text-shadow: 0 0 0.625rem hsl(202deg 5% 5% / 80%);
+  background: linear-gradient(
+    160deg,
+    hsl(40deg 80% 50%) 0%,
+    hsl(33deg 80% 48%) 18%,
+    hsl(24deg 80% 45%) 50%,
+    hsl(18deg 80% 50%) 90%,
+    hsl(15deg 80% 50%) 100%
+  );
+  text-shadow: 0 0 0.625rem hsl(25deg 90% 50% / 50%),
+    0 0 0.125rem hsl(25deg 90% 50% / 50%);
 }
 .intro-inner {
-  color: #f8f9fa;
-  padding: 5vmin;
+  color: #fff;
+  padding: 8vmin 5vmin;
+  font-weight: 200;
+  font-size: 1.125rem;
+}
+.intro-inner strong {
+  font-weight: 500;
 }
 @media (width > 38rem) {
   #intro {
-    background: var(--intro-grad), url("./photos/cooking-2.avif");
+    background: linear-gradient(
+        130deg,
+        hsl(218deg 75% 60% / 10%),
+        hsl(218deg 70% 35% / 45%),
+        hsl(218deg 80% 28% / 40%),
+        hsl(218deg 30% 10% / 35%)
+      ),
+      url("./photos/cooking-2.avif");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 5vmin 0;
+    text-shadow: 0 0 0.625rem hsl(25deg 2% 2% / 50%),
+      0 0 0.125rem hsl(25deg 2% 2% / 50%);
   }
   .intro-inner {
     max-width: 36rem;
@@ -148,8 +168,8 @@ h1 > span.blue {
     border-radius: 2vmin;
     font-size: 1.125rem;
     padding: 2rem 2.75rem 2.125rem;
-    background-color: hsl(202deg 25% 10% / 10%);
-    box-shadow: 0 0 0.25rem 0.25rem hsl(202deg 10% 99% / 6%);
+    background-color: hsl(20deg 20% 10% / 25%);
+    box-shadow: 0 0 0.25rem 0.25rem hsl(18deg 10% 99% / 6%);
     backdrop-filter: blur(0.5px);
   }
 }
@@ -170,16 +190,10 @@ h4 {
   font-weight: 300;
   margin-bottom: 0.5rem;
   display: inline-block;
-  border-bottom: 0.25rem solid #fff;
+  border-bottom: 0.25rem solid hsl(27deg 78% 52%);
 }
 .services-heading {
-  background: radial-gradient(
-      circle 85vmin at center,
-      hsl(202deg 85% 20% / 60%),
-      hsl(202deg 80% 70% / 50%),
-      hsl(202deg 80% 90% / 60%)
-    ),
-    url("./photos/couch.avif");
+  background: var(--rad-grad), url("./photos/couch.avif");
 }
 .support-heading {
   background: var(--rad-grad), url("./photos/cooking-1.avif");
@@ -194,14 +208,14 @@ h4 {
   padding: 20vmin 0;
 }
 .heading-title {
-  border: 0.25rem solid hsl(202deg 100% 52%);
+  border: 0.25rem solid hsl(28deg 78% 52%);
   border-left: none;
   border-right: none;
   max-width: 12rem;
   margin: 0 auto;
   padding: 1rem;
   color: #fff;
-  text-shadow: 0 0 0.625rem hsl(202deg 5% 5% / 80%);
+  text-shadow: 0 0 0.625rem hsl(218deg 5% 5% / 80%);
   backdrop-filter: blur(1px);
 }
 .heading-title h2 {
@@ -231,7 +245,7 @@ h4 {
   inset: 0;
   width: 100%;
   height: 100%;
-  background: hsl(202deg 80% 65% / 40%);
+  background: hsl(218deg 80% 65% / 15%);
   clip-path: var(--clip-polygon);
   z-index: 1;
 }
@@ -257,9 +271,13 @@ ul li {
 }
 #location {
   padding: 4rem 0;
-  background: linear-gradient(#fff3, transparent, hsl(202deg 80% 40% / 30%)),
-    radial-gradient(hsl(202deg 80% 40% / 30%), transparent, #fff3),
-    url("./treasure-valley.avif");
+  background: linear-gradient(
+      hsl(218deg 60% 40% / 40%),
+      hsl(218deg 40% 20% / 20%),
+      hsl(218deg 60% 40% / 30%)
+    ),
+    radial-gradient(hsl(218deg 80% 40% / 30%), transparent, #fff3),
+    url("./treasure-valley.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -271,7 +289,7 @@ ul li {
 }
 .locations {
   margin: auto;
-  background-color: hsl(202deg 10% 99% / 80%);
+  background-color: hsl(218deg 10% 99% / 80%);
   width: 21rem;
   height: 21rem;
   max-width: 100vmin;
@@ -282,8 +300,8 @@ ul li {
   border-radius: 50%;
   padding: 2rem;
   text-align: center;
-  border: 0.25rem solid hsl(202deg 20% 99% / 90%);
-  box-shadow: 0 0 0.25rem 0.25rem hsl(202deg 10% 9% / 8%);
+  border: 0.25rem solid hsl(218deg 20% 99% / 90%);
+  box-shadow: 0 0 0.25rem 0.25rem hsl(218deg 10% 9% / 8%);
   backdrop-filter: blur(1px);
 }
 .locations h2 {
@@ -302,7 +320,7 @@ ul li {
 }
 .contact-inner {
   padding: 3rem 1rem;
-  background-color: hsl(202deg 10% 99% / 70%);
+  background-color: hsl(218deg 10% 99% / 70%);
   backdrop-filter: blur(0.5px);
 }
 #contact {
@@ -321,7 +339,7 @@ ul li {
     margin: auto;
     padding: 1.25rem 1.5rem;
     border-radius: 1rem;
-    box-shadow: 0 0 0.25rem 0.25rem hsl(202deg 10% 9% / 8%);
+    box-shadow: 0 0 0.25rem 0.25rem hsl(218deg 10% 9% / 8%);
   }
 }
 .contact-header {
@@ -342,7 +360,15 @@ ul li {
   }
 }
 footer {
-  background-color: hsl(202deg 85% 28%);
+  /* background-color: hsl(218deg 70% 28%); */
+  background: linear-gradient(
+    160deg,
+    hsl(40deg 80% 50%) 0%,
+    hsl(33deg 80% 48%) 18%,
+    hsl(24deg 80% 45%) 50%,
+    hsl(18deg 80% 50%) 90%,
+    hsl(15deg 80% 50%) 100%
+  );
 }
 .bottom-nav {
   padding: 1rem 2rem;
@@ -415,29 +441,29 @@ textarea {
   cursor: pointer;
   background-image: none;
   margin: 1rem auto;
-  color: hsl(202deg 50% 10%);
-  border: 0.125rem solid hsl(202deg 60% 30%);
-  background-color: hsl(202deg 60% 96%);
-  box-shadow: 0 0 0.25rem 0.25rem hsl(202deg 75% 5% / 1%);
+  color: hsl(218deg 50% 10%);
+  border: 0.125rem solid hsl(218deg 60% 30%);
+  background-color: hsl(218deg 60% 96%);
+  box-shadow: 0 0 0.25rem 0.25rem hsl(218deg 75% 5% / 1%);
   opacity: 0.96;
 }
 .btn:hover,
 .btn:focus {
-  color: hsl(202deg 50% 5%);
+  color: hsl(218deg 50% 5%);
   text-decoration: none;
   opacity: 1;
 }
 .btn:hover {
   transform: scale(1.025);
-  border-color: hsl(202deg 85% 25%);
-  background-color: hsl(202deg 60% 94%);
-  box-shadow: 0 0 0.375rem 0.375rem hsl(202deg 75% 5% / 4%);
+  border-color: hsl(218deg 85% 25%);
+  background-color: hsl(218deg 60% 94%);
+  box-shadow: 0 0 0.375rem 0.375rem hsl(218deg 75% 5% / 4%);
 }
 .btn:focus {
   transform: scale(1.01);
-  border-color: hsl(202deg 85% 25%);
-  background-color: hsl(202deg 60% 93%);
-  box-shadow: 0 0 0.25rem 0.25rem hsl(202deg 75% 5% / 4%);
+  border-color: hsl(218deg 85% 25%);
+  background-color: hsl(218deg 60% 93%);
+  box-shadow: 0 0 0.25rem 0.25rem hsl(218deg 75% 5% / 4%);
 }
 input::placeholder {
   opacity: 0.7;
@@ -445,7 +471,7 @@ input::placeholder {
 }
 label {
   display: block;
-  color: hsl(202deg 80% 15%);
+  color: hsl(218deg 80% 15%);
   font-weight: 600;
   font-size: 1.125rem;
   padding: 0.5rem 0 0.25rem;
@@ -456,8 +482,8 @@ input,
 textarea {
   display: block;
   padding: 0.5rem;
-  border: 0.125rem solid hsl(202deg 50% 25%);
-  background-color: hsl(202deg 40% 99%);
+  border: 0.125rem solid hsl(218deg 50% 25%);
+  background-color: hsl(218deg 40% 99%);
   border-radius: 0.375rem;
   outline: none;
   width: 100%;
@@ -472,13 +498,13 @@ textarea {
 }
 input:hover,
 textarea:hover {
-  background-color: hsl(202deg 60% 98%);
-  border-color: hsl(202deg 50% 15%);
+  background-color: hsl(218deg 60% 98%);
+  border-color: hsl(218deg 50% 15%);
 }
 input:focus,
 textarea:focus {
-  background-color: hsl(202deg 95% 99%);
-  border-color: hsl(202deg 80% 40%);
+  background-color: hsl(218deg 95% 99%);
+  border-color: hsl(218deg 80% 40%);
 }
 input:valid {
   border-color: hsl(180deg 100% 30%);
@@ -504,7 +530,7 @@ input:valid {
   margin: 2rem auto;
   width: 4rem;
   height: 4rem;
-  border: 0.25rem solid hsl(202deg 80% 40%);
+  border: 0.25rem solid hsl(218deg 80% 40%);
   border-top: 0.25rem solid #eee;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -539,16 +565,28 @@ input:valid {
 }
 @media (width <= 50rem) {
   .item:first-child h4 {
-    border-bottom-color: hsl(202deg 75% 56%);
+    border-bottom-color: var(--ssg1);
   }
   .item:nth-child(2) h4 {
-    border-bottom-color: hsl(202deg 80% 42%);
+    border-bottom-color: var(--ssg2);
   }
   .item:nth-child(3) h4 {
-    border-bottom-color: hsl(202deg 85% 32%);
+    border-bottom-color: var(--ssg3);
   }
   .item:last-child h4 {
-    border-bottom-color: hsl(202deg 30% 10%);
+    border-bottom-color: var(--ssg4);
+  }
+  .go-blue .item:first-child h4 {
+    border-bottom-color: hsl(218deg 75% 56%);
+  }
+  .go-blue .item:nth-child(2) h4 {
+    border-bottom-color: hsl(218deg 75% 44%);
+  }
+  .go-blue .item:nth-child(3) h4 {
+    border-bottom-color: hsl(218deg 85% 35%);
+  }
+  .go-blue .item:last-child h4 {
+    border-bottom-color: hsl(218deg 85% 29%);
   }
 }
 @media (width > 50rem) {
@@ -566,34 +604,48 @@ input:valid {
   .item {
     flex: 0 1 50%;
     padding: 3.5vmin 4vmin 3.75vmin;
-    color: #fff;
+    color: #121212;
     border: none;
     margin: 0;
+    background-color: #fff;
   }
   .item:first-child {
-    border-right: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-    background-color: hsl(202deg 75% 45% / 95%);
+    border-right: 1px solid var(--burnt-orange);
+    border-bottom: 1px solid var(--burnt-orange);
+  }
+  .go-blue .item:first-child {
+    background-color: hsl(218deg 65% 45% / 95%);
   }
   .item:nth-child(2) {
-    border-left: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-    background-color: hsl(202deg 80% 38% / 95%);
+    border-left: 1px solid var(--burnt-orange);
+    border-bottom: 1px solid var(--burnt-orange);
+  }
+  .go-blue .item:nth-child(2) {
+    background-color: hsl(218deg 70% 38% / 95%);
   }
   .item:nth-child(3) {
-    border-right: 1px solid #fff;
-    border-top: 1px solid #fff;
-    background-color: hsl(202deg 30% 10% / 95%);
+    border-right: 1px solid var(--burnt-orange);
+    border-top: 1px solid var(--burnt-orange);
+  }
+  .go-blue .item:nth-child(3) {
+    background-color: hsl(218deg 65% 25% / 95%);
   }
   .item:last-child {
-    border-left: 1px solid #fff;
-    border-top: 1px solid #fff;
-    background-color: hsl(202deg 85% 28% / 95%);
+    border-left: 1px solid var(--burnt-orange);
+    border-top: 1px solid var(--burnt-orange);
+  }
+  .go-blue .item:last-child {
+    background-color: hsl(218deg 70% 28% / 95%);
+  }
+  .go-blue .item,
+  .go-blue h4 {
+    color: #fff;
+    border-color: #fff;
   }
   h4 {
     font-size: 1.5rem;
     font-weight: 300;
-    border-bottom-width: 0.125rem;
+    border-bottom-width: 0.25rem;
     margin-bottom: 0.75rem;
   }
 }
